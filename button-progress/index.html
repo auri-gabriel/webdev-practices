@@ -7,7 +7,7 @@
     <style>
         .button {
             border: none;
-            background: lightseagreen;
+            background: rgb(5, 125, 199);
             color: white;
             padding: 10px 16px;
             cursor: pointer;
@@ -16,6 +16,7 @@
             overflow: hidden;
             border-radius: 5px;
             min-width: 125px;
+            transition: background-color 300ms ease-in 1s; 
         }
 
         .button__progress {
@@ -25,7 +26,7 @@
             top: 0;
             left: 0;
             background-color: rgba(0, 0, 0, 0.2);
-            transition: width 0.5s ease-in-out;
+            transition: width 1.2s ease-in-out;
         }
 
         .button__text {
@@ -49,17 +50,20 @@
 
             if (percent >= 0) {
                 textElement.textContent = button.dataset.progressText;
+                button.style.backgroundColor = "rgb(5, 125, 199)";
             }
 
             if (percent >= 100) {
                 textElement.textContent = button.dataset.completeText;
-                // button.style.backgroundColor = "lightgreen";
+                button.style.backgroundColor = "green";
+                button.disabled = true;
             }
         }
 
         function simulateLoading() {
+            setButtonProgress(buttonUploadFile, 0);
             setTimeout(() => {
-                setButtonProgress(buttonUploadFile, 67);
+                setButtonProgress(buttonUploadFile, 44);
                 setTimeout(() => {
                     setButtonProgress(buttonUploadFile, 100);
                 },1000);
