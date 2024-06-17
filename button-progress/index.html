@@ -31,6 +31,11 @@
 
         .button__text {
             position: relative;
+            opacity: 1;
+        }
+
+        .button__text.hide {
+            opacity: 0;
         }
     </style>
 </head>
@@ -54,9 +59,15 @@
             }
 
             if (percent >= 100) {
-                textElement.textContent = button.dataset.completeText;
                 button.style.backgroundColor = "green";
                 button.disabled = true;
+                setTimeout(function (){
+                    textElement.classList.add('hide');
+                    setTimeout(function(){
+                        textElement.textContent = button.dataset.completeText;
+                        textElement.classList.remove("hide");
+                    }, 500)
+                }, 600)
             }
         }
 
