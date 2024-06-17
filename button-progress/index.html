@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button progress bar</title>
+    <style>
+        .button {
+            border: none;
+            background: lightseagreen;
+            color: white;
+            padding: 10px 16px;
+            cursor: pointer;
+            position: relative;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+            border-radius: 5px;
+            min-width: 125px;
+        }
+
+        .button__progress {
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.2);
+            transition: width 0.3s;
+        }
+
+        .button__text {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" class="button" data-progress-text="Uploading..." data-complete-text="Complete!">
+        <div class="button__progress"></div>
+        <span class="button__text">Upload File</span>
+    </button>
+
+    <script>
+        const buttonUploadFile = document.querySelector(".button");
+
+        function setButtonProgress(button, percent) {
+            const textElement = button.querySelector(".button__text");
+
+            button.querySelector(".button__progress").style.width = `${percent}%`;
+
+            if (percent >= 0) {
+                textElement.textContent = button.dataset.progressText;
+            }
+
+            if (percent >= 100) {
+                textElement.textContent = button.dataset.completeText;
+            }
+        }
+    </script>
+    
+</body>
+</html>
