@@ -21,11 +21,11 @@
         .button__progress {
             position: absolute;
             height: 100%;
-            width: 50%;
+            width: 0%;
             top: 0;
             left: 0;
             background-color: rgba(0, 0, 0, 0.2);
-            transition: width 0.3s;
+            transition: width 0.5s ease-in-out;
         }
 
         .button__text {
@@ -53,8 +53,22 @@
 
             if (percent >= 100) {
                 textElement.textContent = button.dataset.completeText;
+                // button.style.backgroundColor = "lightgreen";
             }
         }
+
+        function simulateLoading() {
+            setTimeout(() => {
+                setButtonProgress(buttonUploadFile, 67);
+                setTimeout(() => {
+                    setButtonProgress(buttonUploadFile, 100);
+                },1000);
+            },1000);
+        }
+
+        buttonUploadFile.onclick = simulateLoading;
+        
+
     </script>
     
 </body>
