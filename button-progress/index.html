@@ -5,10 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Button progress bar</title>
     <style>
+
+        :root {
+
+        /* blue */
+        /* light colors */
+        /*100 = 8% luminance*/
+        --color-blue-050: hsl(200, 90%, 96%);
+        --color-blue-100: hsl(200, 90%, 92%);
+        --color-blue-200: hsl(200, 90%, 84%);
+        --color-blue-300: hsl(200, 90%, 76%);
+        --color-blue-400: hsl(200, 90%, 68%);
+
+        /* neutral */
+        --color-blue-500: hsl(200, 90%, 60%);
+
+        /* dark colors */
+        /*100 = 12% luminance */
+        --color-blue-600: hsl(200, 90%, 48%);
+        --color-blue-700: hsl(200, 90%, 36%);
+        --color-blue-800: hsl(200, 90%, 24%);
+        --color-blue-900: hsl(200, 90%, 12%);
+        --color-blue-950: hsl(200, 90%, 06%);
+
+        /* green */
+        /* light colors */
+        /*100 = 8% luminance*/
+        --color-green-050: hsl(125, 50%, 96%);
+        --color-green-100: hsl(125, 50%, 92%);
+        --color-green-200: hsl(125, 50%, 84%);
+        --color-green-300: hsl(125, 50%, 76%);
+        --color-green-400: hsl(125, 50%, 68%);
+
+        /* neutral */
+        --color-green-500: hsl(125, 50%, 60%);
+
+        /* dark colors */
+        /*100 = 12% luminance */
+        --color-green-600: hsl(125, 50%, 48%);
+        --color-green-700: hsl(125, 50%, 36%);
+        --color-green-800: hsl(125, 50%, 24%);
+        --color-green-900: hsl(125, 50%, 12%);
+        --color-green-950: hsl(125, 50%, 06%);
+        }
+
         .button {
             border: none;
-            background: rgb(5, 125, 199);
-            color: white;
+            background: var(--color-blue-700);
+            color: var(--color-blue-050);
             padding: 10px 16px;
             cursor: pointer;
             position: relative;
@@ -26,7 +70,7 @@
             top: 0;
             left: 0;
             background-color: rgba(0, 0, 0, 0.2);
-            transition: width 1.2s cubic-bezier(.25,.5,.75,.25);
+            transition: width 900ms cubic-bezier(.25,.5,.75,.25);
         }
 
         .button__text {
@@ -60,7 +104,7 @@
             }
 
             if (percent >= 100) {
-                button.style.backgroundColor = "green";
+                button.style.backgroundColor = "var(--color-green-700)";
                 button.disabled = true;
                 setTimeout(function (){
                     textElement.classList.add('hide');
