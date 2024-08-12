@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" class="btn btn-secondary">Mais Detalhes</button>
+
+    <style>
+        .btn-secondary {
+            position: relative;
+            padding: .75rem;
+            font-size: 1.5rem;
+            color: black;
+            background: none;
+            border: 2px solid black;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            color: white
+        }
+
+        .btn-secondary::before {
+            content: "";
+            position: absolute;
+            background: black;
+            bottom: 0;
+            left: 0;
+            right: 100%;
+            top: 0;
+            z-index: -1;
+            transition: right 0.09s ease-in;
+        }
+
+        .btn-secondary:hover::before {
+            right: 0;
+        }
+    </style>
+</body>
+</html>
